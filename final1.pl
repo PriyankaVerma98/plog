@@ -51,7 +51,7 @@ list_accept_ethernet([aarp,atalk,mpls,netbui,rarp,sna,xns]).
 
 ethernet_proto_reject(B) :- match(B,R) , list_reject_ethernet(R), write('rejected') . 
 ethernet_proto_reject(B) :- member(B,R) , list_reject_ethernet(R), write('rejected') . 
-ethernet_proto_accept(B) :- range(B,10,399) ; between(10,399,B) . 
+ethernet_proto_accept(B) :- (range(B,10,399) ; between(10,399,B)); (match(B,T), list_accept_ethernet(T); member(B,T), list_accept_ethernet(T)) . 
 
 ethernet_vid_reject(C) :- member(C,R) , list_reject_ethernet(R). 
 ethernet_vid_accept(C) :- range(C,10,399) ; between(10,399,C) .
