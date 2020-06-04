@@ -1,6 +1,6 @@
 # Prolog Encoding of Firewall rules
 
-Firewall rules were encoded in SWI-Prolog as facts and rules. Based on the set of rules an incoming packet could be:
+Firewall rules were encoded in SWI-Prolog as facts and rules. User enters details of a packet and the firewall engine returns one of the following verdicts:
 * accept (allow the incoming packet) 
 * reject (send reject information to sender) 
 * drop (silently) 
